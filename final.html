@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="final.css">
+    <script src="https://kit.fontawesome.com/24a9985b02.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+               
+                     <ul id="sidemenu">
+                    <li><a href="#header">  Home</a></li>    
+                    <li><a href="#about">  About</a></li>   
+                    <li><a href="#contact">  Contact</a></li>   
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+
+                    </ul>
+                  <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>MY PORTFOLIO</p>
+                <h1>Osoteo, Nover V.</h1>
+                <h2>| BSIT-2B |</h2>
+                <h3 class="social-icons1">
+                    <a href="https://www.facebook.com/profile.php?id=100009870529492"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/wozzy_wazzy/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.messenger.com/t/100034000982236"><i class="fa-brands fa-facebook-messenger"></i></a>
+                </h3>
+                <style>
+                    h1 {text-align: center;}
+                    p {text-align: center;}
+                    h2 {text-align: center;}
+                    h3{text-align: center;}
+                    </style>
+
+            </div>
+
+        </div>
+        </div>
+     
+        <!--------about------->
+                     <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="ewe.png">
+                    </div>
+                    
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>Hello, everyone! My name is Nover Vasquez Osoteo, a second-year BSIT student with a strong passion for web development. My ultimate goal is to become the best web developer in the Philippines. I am constantly driven by my fascination with technology and the limitless possibilities it offers.
+                            I am dedicated to refining my skills, staying updated on industry trends, and pushing the boundaries of my abilities. Creating visually stunning and highly functional websites is my priority, ensuring that they not only meet client needs but also leave a lasting impression on users. Continuous learning is key for me, as I constantly explore new coding techniques, experiment with frameworks, and seek inspiration from innovative web designs.
+                            I am excited about the future opportunities and challenges that lie ahead. With determination, hard work, and an unwavering focus on excellence, I am confident that I will achieve my goal of becoming the best web developer in the Philippines. Thank you for taking the time to get to know me better, and I look forward to connecting with fellow developers and making a meaningful impact in the world of web development.</p>
+                            
+                            <div class="tab-titles">
+                                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                                <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                                <p class="tab-links" onclick="opentab('education')">Education</p>
+                             </div>
+                             <div class="tab-contents active-tab" id="skills">
+                                <ul>
+                                    <li><span>Programming</span><br>Python, Java, or JavaScript </li>
+                                    <li><span>Problem-solving</span><br>Analytical thinking</li>
+                                    <li><span>Networking</span><br> IP addressing, subnetting, routing </li>
+
+                                </ul>
+
+                             </div>
+                             <div class="tab-contents" id="experience">
+                                <ul>
+                                    <li><span>Introduction to Coding</span><br> Learn the basics of programming languages like Java </li>
+                                    <li><span>Networking Fundamentals</span><br>Understand the concepts of IP, LANs, WANs, and network security.</li>
+                                    <li><span>Web Development</span><br> Learn HTML, CSS, and JavaScript to create websites </li>
+
+                                </ul>
+
+                             </div>
+                             <div class="tab-contents" id="education">
+                                <ul>
+                                    <li><span>Junior High School</span><br>San Clemente High School </li>
+                                    <li><span>Senior High School</span><br>Mangatarem National High School</li>
+                                    <li><span>Tertiary Education</span><br>Currently taking BSIT program in Tarlac Agricultural University </li>
+
+                                </ul>
+
+                             </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+    </script>
+    
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.left = "0";
+        }
+        function closemenu(){
+            sidemenu.style.left = "-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxCzlozMx3gT8eVSWm4rnUEwHe2Jk4Q52dfUoXldx8/dev'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+    <!--------contact------->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p> <i class="fa-solid fa-paper-plane"></i>osoteon@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>09682171464 </p>
+                    <h2 class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100009870529492"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/wozzy_wazzy/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.messenger.com/t/100034000982236"><i class="fa-brands fa-facebook-messenger"></i></a>
+                    </h2>
+                <h4>
+
+                    <button type="download" href="images/myvcs.pdf" download class="btn btn2">Download CV</a>
+
+                    </h4>
+                   
+                        
+                </div>
+                <h3 class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2"> Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </h3>
+                <style>
+                    h4{text-align: center;}
+                    h3{text-align: center;}
+                  h2{text-align: center;}
+                </style>
+            </div>
+        </div>
+        <div class="copyright">
+        <p>Copyright © Osoteo<i class="fa-solid fa-heart"></i>Nover V.</i></p>
+        </div>
+
+    </div>
+</body>
+</html>
